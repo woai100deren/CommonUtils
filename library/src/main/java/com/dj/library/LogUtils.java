@@ -2,8 +2,6 @@ package com.dj.library;
 
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.orhanobut.logger.BuildConfig;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -14,6 +12,11 @@ import com.orhanobut.logger.Logger;
 public class LogUtils {
     public static final String LOG_TAG = LogUtils.class.getName();
     private static final boolean NATIVE_LOG = true;
+    private static boolean isDebug = false;
+
+    public static void debug(boolean debug){
+        isDebug = debug;
+    }
 
     /**
      * 格式化打印json数据
@@ -22,7 +25,7 @@ public class LogUtils {
      * @param jsonStr
      */
     public static void json(String tag, String jsonStr) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             Logger.t(tag).json(jsonStr);
         }
     }
@@ -33,7 +36,7 @@ public class LogUtils {
      * @param jsonStr
      */
     public static void json(String jsonStr) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             Logger.json(jsonStr);
         }
     }
@@ -45,7 +48,7 @@ public class LogUtils {
      * @param xmlStr
      */
     public static void xml(String tag, String xmlStr) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             Logger.t(tag).xml(xmlStr);
         }
     }
@@ -56,14 +59,14 @@ public class LogUtils {
      * @param xmlStr
      */
     public static void xml(String xmlStr) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             Logger.xml(xmlStr);
         }
     }
 
 
     public static void i(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.i(getTag(null), buildMessage(msg));
             } else {
@@ -73,7 +76,7 @@ public class LogUtils {
     }
 
     public static void i(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.i(getTag(tag), buildMessage(msg));
             } else {
@@ -83,13 +86,13 @@ public class LogUtils {
     }
 
     public static void i(Object...msg){
-        if (BuildConfig.DEBUG){
+        if (isDebug){
             Logger.i(buildMessage(msg));
         }
     }
 
     public static void v(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.i(getTag(null), buildMessage(msg));
             } else {
@@ -99,7 +102,7 @@ public class LogUtils {
     }
 
     public static void v(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.i(getTag(tag), buildMessage(msg));
             } else {
@@ -109,13 +112,13 @@ public class LogUtils {
     }
 
     public static void v(Object...msg){
-        if (BuildConfig.DEBUG){
+        if (isDebug){
             Logger.v(buildMessage(msg));
         }
     }
 
     public static void w(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.i(getTag(null), buildMessage(msg));
             } else {
@@ -125,7 +128,7 @@ public class LogUtils {
     }
 
     public static void w(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.i(getTag(tag), buildMessage(msg));
             } else {
@@ -135,13 +138,13 @@ public class LogUtils {
     }
 
     public static void w(Object...msg){
-        if (BuildConfig.DEBUG){
+        if (isDebug){
             Logger.w(buildMessage(msg));
         }
     }
 
     public static void e(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.e(getTag(null), buildMessage(msg));
             } else {
@@ -151,7 +154,7 @@ public class LogUtils {
     }
 
     public static void e(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.e(getTag(tag), buildMessage(msg));
             } else {
@@ -161,13 +164,13 @@ public class LogUtils {
     }
 
     public static void e(Object...msg){
-        if (BuildConfig.DEBUG){
+        if (isDebug){
             Logger.e(buildMessage(msg));
         }
     }
 
     public static void d(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.i(getTag(null), buildMessage(msg));
             } else {
@@ -177,7 +180,7 @@ public class LogUtils {
     }
 
     public static void d(String tag, String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             if (NATIVE_LOG) {
                 Log.i(getTag(tag), buildMessage(msg));
             } else {
@@ -188,7 +191,7 @@ public class LogUtils {
     }
 
     public static void d(Object...msg){
-        if (BuildConfig.DEBUG){
+        if (isDebug){
             Logger.d(buildMessage(msg));
         }
     }
@@ -198,7 +201,7 @@ public class LogUtils {
     }
 
     public static void e(String tag, Throwable thr) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             Log.e(getTag(tag), Log.getStackTraceString(thr));
         }
     }
