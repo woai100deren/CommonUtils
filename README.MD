@@ -32,7 +32,7 @@ allprojects {
 
 ```css
 dependencies {
-	   implementation 'com.github.woai100deren:CommonUtils:0.1'
+	   implementation 'com.github.woai100deren:CommonUtils:0.2'
 }
 ```
 
