@@ -21,18 +21,18 @@
 
 ```css
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+   repositories {
+      ...
+      maven { url 'https://jitpack.io' }
+   }
+}
 ```
 
 添加依赖
 
 ```css
 dependencies {
-	   implementation 'com.github.woai100deren:CommonUtils:0.2'
+   implementation 'com.github.woai100deren:CommonUtils:0.2'
 }
 ```
 
